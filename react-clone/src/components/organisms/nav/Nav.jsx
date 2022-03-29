@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { NavLink as Link } from "react-router-dom";
 import SideBar from "./SideBar";
+import MyModal from "./MyModal";
 import logo from "../../../assets/images/youtube.png";
 import hamburger from "../../../assets/images/hamburger.png";
 import search from "../../../assets/images/search.png";
@@ -83,21 +84,22 @@ const ProfileButton = styled.img`
   padding: 4px 6px;
   cursor: pointer;
 `;
+const ModalBox = styled.div`
+  display: ${({ open }) => (open === false ? "none" : "block")};
+`;
 function Nav() {
-  const [isSideOpen, setIsSideOpen] = useState(0);
+  const [isSideOpen, setIsSideOpen] = useState(false);
+  const [isMyModalOpen, setIsMyModalOpen] = useState(false);
   return (
     <Container>
       <TitleBox>
-        <TitleImage2
-          src={hamburger}
-          onClick={() => setIsSideOpen(isSideOpen + 1)}
-        />
+        <TitleImage2 src={hamburger} onClick={() => setIsSideOpen(true)} />
         <Link to="/">
           <TitleImage src={logo} />
         </Link>
       </TitleBox>
       {/* <SideBarBox open={isSideOpen}> */}
-      <SideBar open={isSideOpen} />
+      <SideBar open={isSideOpen} setOpen={setIsSideOpen} />
       {/* </SideBarBox> */}
       <SearchBar>
         <SearchInput placeholder="검색" />
@@ -108,7 +110,16 @@ function Nav() {
         <LogoImg src={video} size={"short"} />
         <LogoImg src={dots} />
         <LogoImg src={alarm} size={"small"} />
-        <ProfileButton src={unnamed} alt="아바타이미지" />
+        <ProfileButton
+          src={unnamed}
+          alt="아바타이미지"
+          onClick={() =>
+            setIsMyModalOpen(isMyModalOpen === false ? true : false)
+          }
+        />
+        <ModalBox open={isMyModalOpen}>
+          <MyModal />
+        </ModalBox>
       </ProfileBox>
       {/* <LogoutButton onClick={() => logout()} /> */}
     </Container>

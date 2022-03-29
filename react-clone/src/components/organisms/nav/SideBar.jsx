@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { NavLink as Link } from "react-router-dom";
 import ContentBox from "./SideContentBox";
@@ -11,9 +11,9 @@ import {
   settingList,
 } from "../../../data/SideBarData";
 import CopyRight from "../../molecules/CopyRight";
-const Container = styled.div`
-  width: ${({ open }) => (open !== 0 ? "100%" : "0")};
-  height: ${({ open }) => (open !== 0 ? "100%" : "0")};
+const Backdrop = styled.div`
+  width: ${({ open }) => (open !== false ? "100%" : "0")};
+  height: ${({ open }) => (open !== false ? "100%" : "0")};
   position: fixed;
   left: 0;
   top: 0;
@@ -23,7 +23,7 @@ const SideBarBox = styled.div`
   width: 240px;
   height: 100%;
   position: fixed;
-  left: ${({ open }) => (open !== 0 ? "0" : "-240px")};
+  left: ${({ open }) => (open !== false ? "0" : "-240px")};
   top: 0;
   transition: 0.2s;
   background-color: white;
@@ -47,16 +47,13 @@ const TitleImage2 = styled.img`
   padding: 18px 8px 18px 8px;
   cursor: pointer;
 `;
-function SideBar({ open }) {
-  const [isSideOpen, setIsSideOpen] = useState(open);
-  useEffect(() => {
-    setIsSideOpen(open);
-  }, [open]);
+function SideBar({ open, setOpen }) {
   return (
-    <Container open={isSideOpen}>
-      <SideBarBox open={isSideOpen}>
+    <>
+      <Backdrop open={open} />
+      <SideBarBox open={open}>
         <TitleBox>
-          <TitleImage2 src={hamburger} onClick={() => setIsSideOpen(0)} />
+          <TitleImage2 src={hamburger} onClick={() => setOpen(false)} />
           <Link to="/">
             <TitleImage src={logo} />
           </Link>
@@ -67,7 +64,7 @@ function SideBar({ open }) {
         <ContentBox list={settingList} />
         <CopyRight />
       </SideBarBox>
-    </Container>
+    </>
   );
 }
 
