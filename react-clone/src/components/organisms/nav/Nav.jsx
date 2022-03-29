@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import cookie from "react-cookies";
 import { NavLink as Link } from "react-router-dom";
 import SideBar from "./SideBar";
 import logo from "../../../assets/images/youtube.png";
@@ -29,11 +28,13 @@ const TitleImage = styled.img`
   width: 97px;
   height: 24px;
   padding: 18px 14px 18px 16px;
+  cursor: pointer;
 `;
 const TitleImage2 = styled.img`
   width: 26px;
   height: 26px;
   padding: 18px 8px 18px 8px;
+  cursor: pointer;
 `;
 const SearchBar = styled.div`
   display: flex;
@@ -62,12 +63,12 @@ const SearchVoice = styled.img`
   border-radius: 50%;
   background-color: #f8f8f8;
   margin-left: 8px;
+  cursor: pointer;
 `;
 const ProfileBox = styled.div`
   display: flex;
   align-items: center;
 `;
-const LoginButton = styled.button``;
 const LogoImg = styled.img`
   width: ${({ size }) => (size === "small" ? "20px" : "24px")};
   height: ${({ size }) => (size === "short" ? "20px" : "24px")};
@@ -82,30 +83,22 @@ const ProfileButton = styled.img`
   padding: 4px 6px;
   cursor: pointer;
 `;
-const LogoutButton = styled.button`
-  width: 177px;
-  height: 51px;
-  margin: 23px 0 0 37px;
-  cursor: pointer;
-`;
-
 function Nav() {
-  const logout = () => {
-    if (window.confirm("Would you like to Sign out?")) {
-      cookie.remove("user_token");
-      document.location.href = "/";
-    }
-  };
-
+  const [isSideOpen, setIsSideOpen] = useState(0);
   return (
     <Container>
       <TitleBox>
-        <TitleImage2 src={hamburger} />
+        <TitleImage2
+          src={hamburger}
+          onClick={() => setIsSideOpen(isSideOpen + 1)}
+        />
         <Link to="/">
           <TitleImage src={logo} />
         </Link>
       </TitleBox>
-      <SideBar />
+      {/* <SideBarBox open={isSideOpen}> */}
+      <SideBar open={isSideOpen} />
+      {/* </SideBarBox> */}
       <SearchBar>
         <SearchInput placeholder="검색" />
         <SearchButton icon={search}></SearchButton>
