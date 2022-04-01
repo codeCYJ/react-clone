@@ -1,19 +1,12 @@
 import React from "react";
-import styled from "styled-components";
-import MiniSideBar from "../organisms/main/MiniSideBar";
+import TopList from "../organisms/main/TopList";
+import PlayList from "../organisms/main/PlayList";
 
-const Container = styled.div`
-  margin-left: 72px;
-`;
 function Main() {
   return (
     <>
-      <MiniSideBar />
-      <Container>
-        <p>asdkaskd</p>
-        <header>title</header>
-        <h1>asdasd</h1>
-      </Container>
+      <TopList />
+      <PlayList />
     </>
   );
 }

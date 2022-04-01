@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import styled, { keyframes, css } from "styled-components";
 import { NavLink as Link } from "react-router-dom";
-import ContentBox from "./SideContentBox";
+import ContentBox from "../nav/SideContentBox";
 import logo from "../../../assets/images/youtube.png";
 import hamburger from "../../../assets/images/hamburger.png";
 import {
@@ -11,22 +11,40 @@ import {
   settingList,
 } from "../../../data/SideBarData";
 import CopyRight from "../../molecules/CopyRight";
+
+const slideIn = keyframes`
+  from {
+    left: -240px;
+  }
+  to{
+    left: 0;
+  }
+`;
+
 const Backdrop = styled.div`
-  width: ${({ open }) => (open !== false ? "100%" : "0")};
-  height: ${({ open }) => (open !== false ? "100%" : "0")};
+  width: 100vw;
+  height: 100vh;
   position: fixed;
   left: 0;
   top: 0;
   background-color: rgba(0, 0, 0, 0.4);
+  z-index: 2;
 `;
 const SideBarBox = styled.div`
+  ${({ isNotMain }) =>
+    isNotMain &&
+    css`
+      animation: ${slideIn} 0.2s;
+    `}
+
   width: 240px;
   height: 100%;
   position: fixed;
-  left: ${({ open }) => (open !== false ? "0" : "-240px")};
-  top: 0;
+  left: ${({ collapsing }) => (collapsing ? "-240px" : "0")};
+  top: ${({ isNotMain }) => (isNotMain ? "0" : "56px")};
   transition: 0.2s;
   background-color: white;
+  z-index: 3;
 `;
 const TitleBox = styled.div`
   width: 240px;
@@ -47,17 +65,31 @@ const TitleImage2 = styled.img`
   padding: 18px 8px 18px 8px;
   cursor: pointer;
 `;
-function SideBar({ open, setOpen }) {
+function SideBar({ onClose, type }) {
+  const [collapsing, setCollapsing] = useState(false);
+  const handleClose = () => {
+    if (type === "main") {
+      onClose();
+      return;
+    }
+    setCollapsing(true);
+    setTimeout(() => {
+      onClose();
+    }, 200);
+  };
+
   return (
     <>
-      <Backdrop open={open} />
-      <SideBarBox open={open}>
-        <TitleBox>
-          <TitleImage2 src={hamburger} onClick={() => setOpen(false)} />
-          <Link to="/">
-            <TitleImage src={logo} />
-          </Link>
-        </TitleBox>
+      {type !== "main" && <Backdrop />}
+      <SideBarBox collapsing={collapsing} isNotMain={type !== "main"}>
+        {type !== "main" && (
+          <TitleBox>
+            <TitleImage2 src={hamburger} onClick={handleClose} />
+            <Link to="/">
+              <TitleImage src={logo} />
+            </Link>
+          </TitleBox>
+        )}
         <ContentBox list={contentList} />
         <ContentBox list={personalList} />
         <ContentBox list={moreList} title="YOUTUBE 더보기" />

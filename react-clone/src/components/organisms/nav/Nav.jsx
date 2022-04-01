@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { NavLink as Link } from "react-router-dom";
-import SideBar from "./SideBar";
 import MyModal from "./MyModal";
 import logo from "../../../assets/images/youtube.png";
 import hamburger from "../../../assets/images/hamburger.png";
@@ -87,20 +86,16 @@ const ProfileButton = styled.img`
 const ModalBox = styled.div`
   display: ${({ open }) => (open === false ? "none" : "block")};
 `;
-function Nav() {
-  const [isSideOpen, setIsSideOpen] = useState(false);
+function Nav({ setOpen }) {
   const [isMyModalOpen, setIsMyModalOpen] = useState(false);
   return (
     <Container>
       <TitleBox>
-        <TitleImage2 src={hamburger} onClick={() => setIsSideOpen(true)} />
+        <TitleImage2 src={hamburger} onClick={() => setOpen((prev) => !prev)} />
         <Link to="/">
           <TitleImage src={logo} />
         </Link>
       </TitleBox>
-      {/* <SideBarBox open={isSideOpen}> */}
-      <SideBar open={isSideOpen} setOpen={setIsSideOpen} />
-      {/* </SideBarBox> */}
       <SearchBar>
         <SearchInput placeholder="검색" />
         <SearchButton icon={search}></SearchButton>
