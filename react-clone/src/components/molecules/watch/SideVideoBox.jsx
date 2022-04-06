@@ -3,10 +3,6 @@ import styled from "styled-components";
 const Container = styled.div`
   display: flex;
   margin-bottom: 10px;
-  &:first-child {
-    margin-top: 15px;
-  }
-  width: 87%;
 `;
 const Thumbnail = styled.img`
   width: 168px;
@@ -16,12 +12,12 @@ const TextBox = styled.div``;
 const Title = styled.p`
   font-size: 14px;
   color: #030303;
-  margin: 0 0 5px 0;
+  margin-bottom: 5px;
 `;
 const Content = styled.p`
   font-size: 12px;
   color: #606060;
-  margin: 0 0 5px 0;
+  margin-bottom: 5px;
 `;
 function SideVideoBox({ video }) {
   const { thumbnail, title, channel, hit, createAt } = video;
