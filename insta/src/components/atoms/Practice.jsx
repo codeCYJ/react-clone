@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import styled from "styled-components";
 const Container = styled.div`
   margin-left: 150px;
@@ -9,12 +9,14 @@ const Practice = () => {
     { id: 1, text: "공부", checked: false },
   ]);
   const [text, setText] = useState("");
-  const [nextId, setNextId] = useState(2);
+  // const [nextId, setNextId] = useState(2);
+  const nextId = useRef(2);
+
   const push = (e) => {
-    setData([...data, { id: nextId, text, checked: false }]);
+    setData([...data, { id: nextId.current, text, checked: false }]);
     e.preventDefault();
     setText("");
-    setNextId((prev) => prev + 1);
+    nextId.current += 1;
     console.log(data);
   };
   const handleDelete = (id) => {
