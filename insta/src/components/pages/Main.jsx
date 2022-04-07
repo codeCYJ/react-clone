@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import Footer from "../organisms/Footer";
+import RightTopBox from "../molecules/RightTopBox";
+import RightBottomBox from "../molecules/RightBottomBox";
+import RightFooter from "../molecules/MainRightFooter";
 import { imageData } from "../../data/imageData";
 
 const Layout = styled.div`
@@ -11,6 +14,7 @@ const Container = styled.div`
   width: 100%;
   max-width: 935px;
   display: flex;
+  justify-content: center;
   margin: 32px auto 0;
   padding-bottom: 32px;
 `;
@@ -30,7 +34,10 @@ const LeftImage = styled.img`
   opacity: ${({ active }) => !active && 0};
   transition: opacity 0.5s;
 `;
-const Right = styled.div``;
+const Right = styled.div`
+  flex-grow: 1;
+  max-width: 350px;
+`;
 const Main = () => {
   let activeIndex = 0;
   setTimeout(() => {
@@ -46,7 +53,11 @@ const Main = () => {
             <LeftImage key={id} src={link} active={activeIndex === index} />
           ))}
         </Left>
-        <Right></Right>
+        <Right>
+          <RightTopBox />
+          <RightBottomBox />
+          <RightFooter />
+        </Right>
       </Container>
       <Footer />
     </Layout>
