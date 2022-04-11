@@ -1,43 +1,27 @@
 import styled from "styled-components";
-import Footer from "../organisms/Footer";
-import RightTopBox from "../molecules/main/RightTopBox";
-import RightBottomBox from "../molecules/main/RightBottomBox";
-import RightFooter from "../molecules/main/RightFooter";
-import Left from "../molecules/main/Left";
+import Nav from "../organisms/Nav";
+import Right from "../organisms/main/Right";
+import ReelsList from "../organisms/main/ReelsList";
+import PostList from "../organisms/main/PostList";
 
-const Layout = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: #fafafa;
-`;
+const Layout = styled.div``;
 const Container = styled.div`
-  flex-grow: 1;
-  width: 100%;
-  max-width: 935px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 32px auto 0;
-  padding-bottom: 32px;
+  padding: 16px 0;
 `;
-
-const Right = styled.div`
-  flex-grow: 1;
-  max-width: 350px;
-`;
+const Left = styled.div``;
 const Main = () => {
   return (
     <Layout>
+      <Nav />
       <Container>
-        <Left />
-        <Right>
-          <RightTopBox />
-          <RightBottomBox />
-          <RightFooter />
-        </Right>
+        <Left>
+          <ReelsList />
+          <PostList />
+        </Left>
+        <Right />
       </Container>
-      <Footer />
     </Layout>
   );
 };
+
 export default Main;

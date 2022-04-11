@@ -11,7 +11,7 @@ const Content = styled.p`
   margin: 0;
   line-height: 20px;
 `;
-const ContentBtn = styled.button`
+const ContentBtn = styled.a`
   border: 0;
   color: #0095f6;
   padding: 0;
@@ -22,7 +22,7 @@ const MainSecondBox = () => {
   return (
     <Container>
       <Content>
-        계정이 있으신가요? <ContentBtn>로그인</ContentBtn>
+        계정이 있으신가요? <ContentBtn href="/login">로그인</ContentBtn>
       </Content>
     </Container>
   );

@@ -1,6 +1,9 @@
 import styled from "styled-components";
+import { useLocation } from "react-router";
 import { footerTopBtn, footerBottomBtn } from "../../data/footerData";
 const Footer = () => {
+  const location = useLocation();
+  console.log(location.pathname);
   return (
     <Layout>
       <ButtonContainer>
@@ -11,13 +14,15 @@ const Footer = () => {
             </a>
           ))}
         </Contents>
-        <Contents>
-          {footerBottomBtn.map(({ id, link, title }) => (
-            <a key={id} href={link}>
-              <Btn>{title}</Btn>
-            </a>
-          ))}
-        </Contents>
+        {location.pathname === "/" && (
+          <Contents>
+            {footerBottomBtn.map(({ id, link, title }) => (
+              <a key={id} href={link}>
+                <Btn>{title}</Btn>
+              </a>
+            ))}
+          </Contents>
+        )}
       </ButtonContainer>
       <CopyrightContainer>
         <LanguageBtn>
@@ -46,6 +51,7 @@ const Btn = styled.button`
   background-color: white;
   font-size: 12px;
   color: #8e8e8e;
+  background-color: #fafafa;
 `;
 const CopyrightContainer = styled.div`
   padding: 12px 0;
@@ -55,6 +61,7 @@ const CopyrightContainer = styled.div`
 const LanguageBtn = styled.select`
   font-size: 12px;
   color: #8e8e8e;
+  background-color: #fafafa;
 `;
 const Copyright = styled.p`
   font-size: 12px;
