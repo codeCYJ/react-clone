@@ -29,6 +29,7 @@ const ImageWrapper = ({ imageList }) => {
     width: 45px;
     height: 45px;
     z-index: 2;
+    cursor: pointer;
   `;
   return (
     <>

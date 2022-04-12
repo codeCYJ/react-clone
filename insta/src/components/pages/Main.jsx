@@ -7,8 +7,12 @@ import PostList from "../organisms/main/PostList";
 const Layout = styled.div``;
 const Container = styled.div`
   padding: 16px 0;
+  display: flex;
+  justify-content: center;
 `;
-const Left = styled.div``;
+const Left = styled.div`
+  margin-right: 28px;
+`;
 const Main = () => {
   return (
     <Layout>
