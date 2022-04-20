@@ -4,7 +4,9 @@ import Right from "../organisms/main/Right";
 import ReelsList from "../organisms/main/ReelsList";
 import PostList from "../organisms/main/PostList";
 
-const Layout = styled.div``;
+const Layout = styled.div`
+  background-color: #fafafa;
+`;
 const Container = styled.div`
   padding: 16px 0;
   display: flex;

@@ -26,6 +26,7 @@ const ReelsList = () => {
 };
 const Layout = styled.div`
   margin-bottom: 24px;
+  background-color: white;
 `;
 const Container = styled.div`
   border: 1px solid #dbdbdb;
@@ -73,5 +74,6 @@ const PositionBtn = styled.div`
   width: 45px;
   height: 45px;
   z-index: 2;
+  cursor: pointer;
 `;
 export default ReelsList;

@@ -14,6 +14,10 @@ const Layout = styled.div`
 const Container = styled.div`
   width: 350px;
   margin: 35px auto 20px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
 `;
 const Login = () => {
   return (

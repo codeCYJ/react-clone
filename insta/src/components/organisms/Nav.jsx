@@ -6,6 +6,7 @@ const Layout = styled.div`
   display: flex;
   justify-content: center;
   border-bottom: 1px solid #dbdbdb;
+  background-color: white;
   overflow: auto;
 `;
 const Container = styled.div`

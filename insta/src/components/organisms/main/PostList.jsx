@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { postData } from "../../../data/mainData";
 import { ReactComponent as OptionIcon } from "../../../assets/icons/option.svg";
 import ImageWrapper from "../../molecules/main/ImageWrapper";
+import Comment from "../../molecules/main/Comment";
+import Action from "../../molecules/main/Action";
 
 const PostList = () => {
   return (
@@ -21,6 +23,8 @@ const PostList = () => {
             </OptionWrapper>
           </Header>
           <ImageWrapper imageList={imageList} />
+          <Action />
+          <Comment />
         </Container>
       ))}
     </>
@@ -29,11 +33,13 @@ const PostList = () => {
 const Container = styled.div`
   width: 100%;
   max-width: 614px;
+  height: 614px;
   border: 1px solid #dbdbdb;
-  margin: 0 auto 24px auto;
+  margin: 0 auto 124px auto;
+  background-color: white;
 `;
 const Header = styled.div`
-  height: 70px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -44,8 +50,8 @@ const Profile = styled.div`
   padding: 14px 4px 14px 16px;
 `;
 const ProfilePicture = styled.img`
-  width: 42px;
-  height: 42px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
 `;
 const NameAndLocation = styled.div`

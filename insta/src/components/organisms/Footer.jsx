@@ -57,6 +57,8 @@ const CopyrightContainer = styled.div`
   padding: 12px 0;
   display: flex;
   justify-content: center;
+  height: 20px;
+  align-items: center;
 `;
 const LanguageBtn = styled.select`
   font-size: 12px;

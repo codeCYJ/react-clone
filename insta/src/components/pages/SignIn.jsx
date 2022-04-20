@@ -9,6 +9,7 @@ const Layout = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #fafafa;
+  min-height: 100vh;
 `;
 const Container = styled.div`
   flex-grow: 1;
@@ -23,6 +24,7 @@ const Container = styled.div`
 
 const Right = styled.div`
   flex-grow: 1;
+  margin-top: 12px;
   max-width: 350px;
 `;
 const SignIn = () => {
