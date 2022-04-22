@@ -3,7 +3,6 @@ import { useLocation } from "react-router";
 import { footerTopBtn, footerBottomBtn } from "../../data/footerData";
 const Footer = () => {
   const location = useLocation();
-  console.log(location.pathname);
   return (
     <Layout>
       <ButtonContainer>

@@ -1,9 +1,18 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { reelsData } from "../../../data/mainData";
 
 const ReelsList = () => {
   const [position, setPosition] = useState(0);
+  const reelsLength = reelsData.length - 7;
+  const [reelsCount, setReelsCount] = useState(reelsLength);
+  const loa = reelsData.length * 82 + 10;
+  const lop = position * 246 + 7 * 82 + 10;
+  const last = loa - lop + 226;
+  console.log(loa, lop, last);
+
+  console.log(" length - 7", reelsLength, "position : ", position);
+  console.log("reelsCount", reelsCount);
   return (
     <Layout>
       <Container>
@@ -14,12 +23,26 @@ const ReelsList = () => {
           />
         )}
         {reelsData.map((data) => (
-          <Reels key={data.id} position={position}>
+          <Reels
+            key={data.id}
+            position={position}
+            last={last}
+            length={reelsLength}
+            reelsCount={reelsCount}
+          >
             <ReelsPicture src={data.user.profileImage} />
             <ReelsName>{data.user.name}</ReelsName>
           </Reels>
         ))}
-        <PositionBtn onClick={() => setPosition((prev) => prev + 1)} next />
+        {reelsLength > position * 3 && (
+          <PositionBtn
+            onClick={() => {
+              setPosition((prev) => prev + 1);
+              setReelsCount((prev) => prev - 3);
+            }}
+            next
+          />
+        )}
       </Container>
     </Layout>
   );
@@ -30,9 +53,8 @@ const Layout = styled.div`
 `;
 const Container = styled.div`
   border: 1px solid #dbdbdb;
-  padding: 16px 0;
-  width: 100%;
-  max-width: 614px;
+  padding: 11px 0;
+  width: 614px;
   margin: 0 auto;
   display: flex;
   padding-left: 10px;
@@ -41,15 +63,22 @@ const Container = styled.div`
   box-sizing: border-box;
 `;
 const Reels = styled.div`
-  padding: 0 4px;
+  padding: 0 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 80px;
-  box-sizing: border-box;
-  transform: ${({ position }) => `translateX(${position * -200}px)`};
+  transform: ${({ last, position, length }) =>
+    `translateX(${
+      length <= position * 3 ? (position - 1) * -246 - last : position * -246
+    }px)`};
+  transform: ${({ reelsCount, position }) =>
+    `translateX(${
+      reelsCount < 3 ? (position - 1) * -246 - reelsCount * 82 : position * -246
+    }px)`};
   transition: 500ms;
+  cursor: pointer;
 `;
 const ReelsPicture = styled.img`
   width: 66px;
@@ -59,6 +88,7 @@ const ReelsPicture = styled.img`
 `;
 const ReelsName = styled.div`
   font-size: 12px;
+  line-height: 16px;
   color: #262626;
 `;
 const PositionBtn = styled.div`

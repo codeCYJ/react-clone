@@ -79,6 +79,166 @@ export const reelsData = [
       profileImage: "https://source.unsplash.com/user/erondu/100x100",
     },
   },
+  {
+    id: 12,
+    user: {
+      name: "Nepp",
+      profileImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbrMjWkGeVUViVJ-7BNE-pB3cxIwW8265X4c01LwkRkSp_4kkhMHaXQgvjBQBHnpMKXnk&usqp=CAU",
+    },
+  },
+  {
+    id: 13,
+    user: {
+      name: "Neptune",
+      profileImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn6BO-wRwMl9MVOpHpiSfyMK326XzjVXwtLA&usqp=CAU",
+    },
+  },
+  {
+    id: 14,
+    user: {
+      name: "Doosan",
+      profileImage:
+        "https://pbs.twimg.com/profile_images/1387421728251408385/gVcCautU_400x400.jpg",
+    },
+  },
+  {
+    id: 15,
+    user: {
+      name: "Banhadam",
+      profileImage: "https://source.unsplash.com/user/erondu/600x600",
+    },
+  },
+  {
+    id: 16,
+    user: {
+      name: "Attraczone",
+      profileImage: "https://source.unsplash.com/user/erondu/500x500",
+    },
+  },
+  {
+    id: 17,
+    user: {
+      name: "Portfolio",
+      profileImage: "https://source.unsplash.com/user/erondu/400x400",
+    },
+  },
+  {
+    id: 18,
+    user: {
+      name: "HTML",
+      profileImage: "https://source.unsplash.com/user/erondu/300x300",
+    },
+  },
+  {
+    id: 19,
+    user: {
+      name: "CSS",
+      profileImage: "https://source.unsplash.com/user/erondu/250x250",
+    },
+  },
+  {
+    id: 20,
+    user: {
+      name: "JAVA",
+      profileImage: "https://source.unsplash.com/user/erondu/200x200",
+    },
+  },
+  {
+    id: 21,
+    user: {
+      name: "javaScript",
+      profileImage: "https://source.unsplash.com/user/erondu/150x150",
+    },
+  },
+  {
+    id: 22,
+    user: {
+      name: "ReactNative",
+      profileImage: "https://source.unsplash.com/user/erondu/100x100",
+    },
+  },
+  {
+    id: 23,
+    user: {
+      name: "Nepp",
+      profileImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbrMjWkGeVUViVJ-7BNE-pB3cxIwW8265X4c01LwkRkSp_4kkhMHaXQgvjBQBHnpMKXnk&usqp=CAU",
+    },
+  },
+  {
+    id: 24,
+    user: {
+      name: "Neptune",
+      profileImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn6BO-wRwMl9MVOpHpiSfyMK326XzjVXwtLA&usqp=CAU",
+    },
+  },
+  {
+    id: 25,
+    user: {
+      name: "Doosan",
+      profileImage:
+        "https://pbs.twimg.com/profile_images/1387421728251408385/gVcCautU_400x400.jpg",
+    },
+  },
+  {
+    id: 26,
+    user: {
+      name: "Banhadam",
+      profileImage: "https://source.unsplash.com/user/erondu/600x600",
+    },
+  },
+  {
+    id: 27,
+    user: {
+      name: "Attraczone",
+      profileImage: "https://source.unsplash.com/user/erondu/500x500",
+    },
+  },
+  {
+    id: 28,
+    user: {
+      name: "Portfolio",
+      profileImage: "https://source.unsplash.com/user/erondu/400x400",
+    },
+  },
+  {
+    id: 29,
+    user: {
+      name: "HTML",
+      profileImage: "https://source.unsplash.com/user/erondu/300x300",
+    },
+  },
+  {
+    id: 30,
+    user: {
+      name: "CSS",
+      profileImage: "https://source.unsplash.com/user/erondu/250x250",
+    },
+  },
+  {
+    id: 31,
+    user: {
+      name: "JAVA",
+      profileImage: "https://source.unsplash.com/user/erondu/200x200",
+    },
+  },
+  {
+    id: 32,
+    user: {
+      name: "javaScript",
+      profileImage: "https://source.unsplash.com/user/erondu/150x150",
+    },
+  },
+  {
+    id: 33,
+    user: {
+      name: "ReactNative",
+      profileImage: "https://source.unsplash.com/user/erondu/100x100",
+    },
+  },
 ];
 
 export const postData = [
@@ -238,5 +398,59 @@ export const postData = [
         },
       ],
     },
+  },
+];
+export const recommendData = [
+  {
+    id: 1,
+    name: "bono_ej06",
+    image: "https://cdn.topstarnews.net/news/photo/201802/364393_7891_3546.jpg",
+    follow: true,
+  },
+  {
+    id: 2,
+    name: "hanggeonjo",
+    image: "https://t1.daumcdn.net/cfile/tistory/993876355AC0F0601A",
+    follow: true,
+  },
+  {
+    id: 3,
+    name: "teddiparabu",
+    image: "https://visla.kr/wp/wp-content/uploads/2017/05/20170514_09.jpg",
+    follow: true,
+  },
+  {
+    id: 4,
+    name: "researchers_mealtime",
+    image: "https://live.staticflickr.com/585/20059017053_2cca674298_n.jpg",
+    follow: false,
+    friends: {
+      id: 1,
+      name: "_jbeom",
+    },
+  },
+  {
+    id: 5,
+    name: "daunroad",
+    image: "https://www.queen.co.kr/news/photo/201908/316786_55266_012.jpg",
+    follow: false,
+    friends: {
+      id: 2,
+      name: "_aura.cy",
+    },
+  },
+  {
+    id: 6,
+    name: "bagsoyeon9907",
+    image:
+      "https://image.edaily.co.kr/images/Photo/files/NP/S/2017/07/PS17072900100.jpg",
+    follow: false,
+  },
+  {
+    id: 7,
+    name: "sooaini",
+    image:
+      "https://mblogthumb-phinf.pstatic.net/20141120_209/ipeople00_14164712208194cwY3_JPEG/vdCZwTmBbq.jpg?type=w2",
+    follow: false,
   },
 ];

@@ -2,12 +2,56 @@ import styled from "styled-components";
 import { useState } from "react";
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
 import IconWrapper from "../molecules/nav/IconWrapper";
+
+const Nav = () => {
+  const [searchFocus, setSearchFocus] = useState(false);
+  const [searchText, setSearchText] = useState("");
+  return (
+    <Layout>
+      <Container>
+        <LogoWrapper>
+          <a href="/main">
+            <Logo src="https://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png" />
+          </a>
+        </LogoWrapper>
+        <SearchContainer>
+          <SearchIconWrapper searchFocus={searchFocus}>
+            <SearchIcon />
+          </SearchIconWrapper>
+          <Search
+            placeholder="검색"
+            value={searchText}
+            searchFocus={searchFocus}
+            onFocus={() => setSearchFocus(true)}
+            onBlur={() => setSearchFocus(false)}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+          <CloseIcon
+            searchFocus={searchFocus}
+            onClick={() => setSearchText("")}
+          />
+        </SearchContainer>
+        <IconContainer>
+          <IconWrapper icon={"home"} />
+          <IconWrapper icon={"direct"} />
+          <IconWrapper icon={"new"} />
+          <IconWrapper icon={"find"} />
+          <IconWrapper icon={"feed"} />
+          <IconWrapper icon={"profile"} />
+        </IconContainer>
+      </Container>
+    </Layout>
+  );
+};
 const Layout = styled.div`
   display: flex;
   justify-content: center;
   border-bottom: 1px solid #dbdbdb;
   background-color: white;
   overflow: auto;
+  position: sticky;
+  z-index: 10;
+  top: 0;
 `;
 const Container = styled.div`
   width: 100%;
@@ -76,44 +120,5 @@ const IconContainer = styled.div`
   justify-content: flex-end;
   flex: 1 0 127px;
 `;
-
-const Nav = () => {
-  const [searchFocus, setSearchFocus] = useState(false);
-  const [searchText, setSearchText] = useState("");
-  return (
-    <Layout>
-      <Container>
-        <LogoWrapper>
-          <Logo src="https://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png" />
-        </LogoWrapper>
-        <SearchContainer>
-          <SearchIconWrapper searchFocus={searchFocus}>
-            <SearchIcon />
-          </SearchIconWrapper>
-          <Search
-            placeholder="검색"
-            value={searchText}
-            searchFocus={searchFocus}
-            onFocus={() => setSearchFocus(true)}
-            onBlur={() => setSearchFocus(false)}
-            onChange={(e) => setSearchText(e.target.value)}
-          />
-          <CloseIcon
-            searchFocus={searchFocus}
-            onClick={() => setSearchText("")}
-          />
-        </SearchContainer>
-        <IconContainer>
-          <IconWrapper icon={"home"} />
-          <IconWrapper icon={"direct"} />
-          <IconWrapper icon={"new"} />
-          <IconWrapper icon={"find"} />
-          <IconWrapper icon={"feed"} />
-          <IconWrapper icon={"profile"} />
-        </IconContainer>
-      </Container>
-    </Layout>
-  );
-};
 
 export default Nav;

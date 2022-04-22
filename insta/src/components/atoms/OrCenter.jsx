@@ -1,5 +1,15 @@
 import styled from "styled-components";
 
+const OrCenter = () => {
+  return (
+    <CenterWrap>
+      <CenterLine />
+      <CenterText>또는</CenterText>
+      <CenterLine />
+    </CenterWrap>
+  );
+};
+
 const CenterWrap = styled.div`
   display: flex;
   align-items: center;
@@ -19,14 +29,4 @@ const CenterText = styled.div`
   position: relative;
   top: 1px;
 `;
-
-const OrCenter = () => {
-  return (
-    <CenterWrap>
-      <CenterLine />
-      <CenterText>또는</CenterText>
-      <CenterLine />
-    </CenterWrap>
-  );
-};
 export default OrCenter;

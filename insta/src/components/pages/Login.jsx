@@ -4,6 +4,19 @@ import RightBottomBox from "../molecules/login/RightBottomBox";
 import RightFooter from "../molecules/signin/RightFooter";
 import Footer from "../organisms/Footer";
 
+const Login = () => {
+  return (
+    <Layout>
+      <Container>
+        <RightTopBox />
+        <RightBottomBox />
+        <RightFooter />
+      </Container>
+      <Footer />
+    </Layout>
+  );
+};
+
 const Layout = styled.div`
   background-color: #fafafa;
   display: flex;
@@ -19,17 +32,4 @@ const Container = styled.div`
   justify-content: center;
   flex: 1;
 `;
-const Login = () => {
-  return (
-    <Layout>
-      <Container>
-        <RightTopBox />
-        <RightBottomBox />
-        <RightFooter />
-      </Container>
-      <Footer />
-    </Layout>
-  );
-};
-
 export default Login;

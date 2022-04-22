@@ -2,6 +2,23 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { imageData } from "../../../data/imageData";
 
+const Left = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setActiveIndex((prev) => (prev === imageData.length - 1 ? 0 : prev + 1));
+    }, 3000);
+  }, [activeIndex]);
+  return (
+    <Container>
+      {imageData.map(({ id, link }, index) => (
+        <LeftImage key={id} src={link} active={activeIndex === index} />
+      ))}
+    </Container>
+  );
+};
+
 const Container = styled.div`
   background-image: url("https://www.instagram.com/static/images/homepage/phones/home-phones.png/1dc085cdb87d.png");
   height: 581px;
@@ -19,20 +36,4 @@ const LeftImage = styled.img`
   transition: opacity 0.5s;
 `;
 
-const Left = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setActiveIndex((prev) => (prev === imageData.length - 1 ? 0 : prev + 1));
-    }, 3000);
-  }, [activeIndex]);
-  return (
-    <Container>
-      {imageData.map(({ id, link }, index) => (
-        <LeftImage key={id} src={link} active={activeIndex === index} />
-      ))}
-    </Container>
-  );
-};
 export default Left;

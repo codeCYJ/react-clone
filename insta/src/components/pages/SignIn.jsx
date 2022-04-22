@@ -5,6 +5,22 @@ import RightBottomBox from "../molecules/signin/RightBottomBox";
 import RightFooter from "../molecules/signin/RightFooter";
 import Left from "../molecules/signin/Left";
 
+const SignIn = () => {
+  return (
+    <Layout>
+      <Container>
+        <Left />
+        <Right>
+          <RightTopBox />
+          <RightBottomBox />
+          <RightFooter />
+        </Right>
+      </Container>
+      <Footer />
+    </Layout>
+  );
+};
+
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
@@ -27,19 +43,4 @@ const Right = styled.div`
   margin-top: 12px;
   max-width: 350px;
 `;
-const SignIn = () => {
-  return (
-    <Layout>
-      <Container>
-        <Left />
-        <Right>
-          <RightTopBox />
-          <RightBottomBox />
-          <RightFooter />
-        </Right>
-      </Container>
-      <Footer />
-    </Layout>
-  );
-};
 export default SignIn;

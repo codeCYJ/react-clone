@@ -38,6 +38,7 @@ const IconWrapper = ({ icon }) => {
 
 const Wrapper = styled.div`
   margin-left: 22px;
+  cursor: pointer;
 `;
 
 const ProfileIcon = styled.img`

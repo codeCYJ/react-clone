@@ -1,6 +1,16 @@
 import styled from "styled-components";
 import { Container as DefaultContainer } from "../../atoms/login";
 
+const MainSecondBox = () => {
+  return (
+    <Container>
+      <Content>
+        계정이 있으신가요? <ContentBtn href="/login">로그인</ContentBtn>
+      </Content>
+    </Container>
+  );
+};
+
 const Container = styled(DefaultContainer)`
   color: #262626;
   font-size: 14px;
@@ -18,13 +28,4 @@ const ContentBtn = styled.a`
   font-weight: 600;
   background-color: white;
 `;
-const MainSecondBox = () => {
-  return (
-    <Container>
-      <Content>
-        계정이 있으신가요? <ContentBtn href="/login">로그인</ContentBtn>
-      </Content>
-    </Container>
-  );
-};
 export default MainSecondBox;

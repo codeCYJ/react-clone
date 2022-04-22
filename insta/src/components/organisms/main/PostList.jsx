@@ -8,38 +8,44 @@ import Action from "../../molecules/main/Action";
 const PostList = () => {
   return (
     <>
-      {postData.map(({ id, user, imageList }) => (
-        <Container key={id}>
-          <Header>
-            <Profile>
-              <ProfilePicture src={user.profileImage} />
-              <NameAndLocation>
-                <ProfileName>{user.name}</ProfileName>
-                <ProfileLocation>{user.location}</ProfileLocation>
-              </NameAndLocation>
-            </Profile>
-            <OptionWrapper>
-              <OptionIcon />
-            </OptionWrapper>
-          </Header>
-          <ImageWrapper imageList={imageList} />
-          <Action />
-          <Comment />
-        </Container>
-      ))}
+      {postData.map(
+        ({ id, user, imageList, likes, replys, content, created_at }) => (
+          <Container key={id}>
+            <Header>
+              <Profile>
+                <ProfilePicture src={user.profileImage} />
+                <NameAndLocation>
+                  <ProfileName>{user.name}</ProfileName>
+                  <ProfileLocation>{user.location}</ProfileLocation>
+                </NameAndLocation>
+              </Profile>
+              <OptionWrapper>
+                <OptionIcon />
+              </OptionWrapper>
+            </Header>
+            <ImageWrapper imageList={imageList} />
+            <Action />
+            <Comment
+              likes={likes}
+              replys={replys}
+              content={content}
+              user={user}
+              created_at={created_at}
+            />
+          </Container>
+        )
+      )}
     </>
   );
 };
 const Container = styled.div`
-  width: 100%;
   max-width: 614px;
-  height: 614px;
   border: 1px solid #dbdbdb;
-  margin: 0 auto 124px auto;
+  margin: 0 auto 24px auto;
   background-color: white;
 `;
 const Header = styled.div`
-  height: 60px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -59,6 +65,9 @@ const NameAndLocation = styled.div`
 `;
 const ProfileName = styled.p`
   font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  color: #262626;
   margin: 0;
 `;
 const ProfileLocation = styled.p`

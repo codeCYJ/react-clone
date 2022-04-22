@@ -1,5 +1,17 @@
 import styled from "styled-components";
 
+const RightFooter = () => {
+  return (
+    <Layout>
+      <TextContent>앱을 다운로드 하세요.</TextContent>
+      <ImageContainer>
+        <Image src="https://www.instagram.com/static/images/appstore-install-badges/badge_ios_korean-ko.png/4a5c9d62d51b.png" />
+        <Image src="https://www.instagram.com/static/images/appstore-install-badges/badge_android_korean-ko.png/f155b664a93b.png" />
+      </ImageContainer>
+    </Layout>
+  );
+};
+
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
@@ -22,15 +34,4 @@ const Image = styled.img`
     margin-right: 8px;
   }
 `;
-const RightFooter = () => {
-  return (
-    <Layout>
-      <TextContent>앱을 다운로드 하세요.</TextContent>
-      <ImageContainer>
-        <Image src="https://www.instagram.com/static/images/appstore-install-badges/badge_ios_korean-ko.png/4a5c9d62d51b.png" />
-        <Image src="https://www.instagram.com/static/images/appstore-install-badges/badge_android_korean-ko.png/f155b664a93b.png" />
-      </ImageContainer>
-    </Layout>
-  );
-};
 export default RightFooter;

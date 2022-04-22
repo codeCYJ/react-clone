@@ -12,24 +12,32 @@ const Action = () => {
         <CommentIcon />
         <DriectIcon />
       </ActionMenu>
-      <List></List>
       <BookmarkIcon />
     </Container>
   );
 };
 
 const Container = styled.section`
-  height: 100px;
   padding: 6px 16px 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 40px;
   svg {
     width: 24px;
     height: 24px;
     padding: 8px;
+    cursor: pointer;
+    &:first-child {
+      padding-left: 0;
+    }
+    &:hover {
+      fill: #999;
+    }
   }
 `;
-const ActionMenu = styled.div``;
-const List = styled.div``;
+const ActionMenu = styled.div`
+  display: flex;
+
+`;
 export default Action;
