@@ -11,6 +11,40 @@ import alarm from "../../../assets/images/alarmIcon.png";
 import dots from "../../../assets/images/ninedots.png";
 import video from "../../../assets/images/videoIcon.png";
 
+function Nav({ setOpen }) {
+  const [isMyModalOpen, setIsMyModalOpen] = useState(false);
+  return (
+    <Container>
+      <TitleBox>
+        <TitleImage2 src={hamburger} onClick={() => setOpen((prev) => !prev)} />
+        <Link to="/">
+          <TitleImage src={logo} />
+        </Link>
+      </TitleBox>
+      <SearchBar>
+        <SearchInput placeholder="검색" />
+        <SearchButton icon={search}></SearchButton>
+        <SearchVoice src={voice} />
+      </SearchBar>
+      <ProfileBox>
+        <LogoImg src={video} size={"short"} />
+        <LogoImg src={dots} />
+        <LogoImg src={alarm} size={"small"} />
+        <ProfileButton
+          src={unnamed}
+          alt="아바타이미지"
+          onClick={() =>
+            setIsMyModalOpen(isMyModalOpen === false ? true : false)
+          }
+        />
+        <ModalBox open={isMyModalOpen}>
+          <MyModal />
+        </ModalBox>
+      </ProfileBox>
+      {/* <LogoutButton onClick={() => logout()} /> */}
+    </Container>
+  );
+}
 const Container = styled.div`
   max-width: 100%;
   height: 56px;
@@ -86,39 +120,4 @@ const ProfileButton = styled.img`
 const ModalBox = styled.div`
   display: ${({ open }) => (open === false ? "none" : "block")};
 `;
-function Nav({ setOpen }) {
-  const [isMyModalOpen, setIsMyModalOpen] = useState(false);
-  return (
-    <Container>
-      <TitleBox>
-        <TitleImage2 src={hamburger} onClick={() => setOpen((prev) => !prev)} />
-        <Link to="/">
-          <TitleImage src={logo} />
-        </Link>
-      </TitleBox>
-      <SearchBar>
-        <SearchInput placeholder="검색" />
-        <SearchButton icon={search}></SearchButton>
-        <SearchVoice src={voice} />
-      </SearchBar>
-      <ProfileBox>
-        <LogoImg src={video} size={"short"} />
-        <LogoImg src={dots} />
-        <LogoImg src={alarm} size={"small"} />
-        <ProfileButton
-          src={unnamed}
-          alt="아바타이미지"
-          onClick={() =>
-            setIsMyModalOpen(isMyModalOpen === false ? true : false)
-          }
-        />
-        <ModalBox open={isMyModalOpen}>
-          <MyModal />
-        </ModalBox>
-      </ProfileBox>
-      {/* <LogoutButton onClick={() => logout()} /> */}
-    </Container>
-  );
-}
-
 export default Nav;
