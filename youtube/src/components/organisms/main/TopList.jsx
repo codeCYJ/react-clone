@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import ScrollToTop from "scroll-to-top-lib";
 
 const Container = styled.div`
   width: 100%;
@@ -54,6 +55,7 @@ function TopList() {
   const [isActive, setIsActive] = useState("1");
   return (
     <Container>
+      <ScrollToTop />
       {MenuData.map(({ name, link, id }) => (
         <MenuButton
           href={link}

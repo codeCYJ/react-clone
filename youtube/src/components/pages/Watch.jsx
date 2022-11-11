@@ -2,6 +2,37 @@ import { useParams } from "react-router";
 import styled from "styled-components";
 import SideVideoBox from "../molecules/watch/SideVideoBox";
 import { videoListMain } from "../../data/MainPlayList";
+import ScrollToTop from "scroll-to-top-lib";
+
+const Watch = () => {
+  const { videoId } = useParams();
+  return (
+    <Layout>
+      <ScrollToTop />
+      <Container>
+        <Left>
+          <VideoWrapper>
+            <iframe
+              src={`https://www.youtube.com/embed/${videoId}`}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </VideoWrapper>
+        </Left>
+
+        <Right>
+          {videoListMain
+            .filter((video) => videoId !== video.videoId)
+            .map((video) => (
+              <SideVideoBox video={video} key={video.id} />
+            ))}
+        </Right>
+      </Container>
+    </Layout>
+  );
+};
 
 const Layout = styled.div`
   background-color: #f9f9f9;
@@ -33,33 +64,4 @@ const VideoWrapper = styled.div`
 const Right = styled.div`
   width: 402px;
 `;
-const Watch = () => {
-  const { videoId } = useParams();
-  return (
-    <Layout>
-      <Container>
-        <Left>
-          <VideoWrapper>
-            <iframe
-              src={`https://www.youtube.com/embed/${videoId}`}
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </VideoWrapper>
-        </Left>
-
-        <Right>
-          {videoListMain
-            .filter((video) => videoId !== video.videoId)
-            .map((video) => (
-              <SideVideoBox video={video} key={video.id} />
-            ))}
-        </Right>
-      </Container>
-    </Layout>
-  );
-};
-
 export default Watch;
